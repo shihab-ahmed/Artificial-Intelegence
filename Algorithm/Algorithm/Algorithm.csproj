@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Neighbour.cs" />
     <Compile Include="BFS.cs" />
     <Compile Include="DFS.cs" />
     <Compile Include="Graph.cs" />
-    <Compile Include="Vertex.cs" />
+    <Compile Include="UCS.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

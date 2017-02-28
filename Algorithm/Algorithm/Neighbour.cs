@@ -7,12 +7,9 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
-    class Program
+    public class Neighbour
     {
-        static void Main(string[] args)
-        {
-            // DFS dfs = new DFS();
-            UCS ucs = new UCS();
-        }
+        public Node neighbour { get; set; }
+        public int cost { get; set; }
     }
 }
