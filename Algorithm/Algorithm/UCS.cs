@@ -1,4 +1,4 @@
-﻿using Lab4AI;
+using Lab4AI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,36 +13,51 @@ namespace Algorithm
         List<Node> graphList = new List<Node>();
         List<Node> exploredList = new List<Node>();
         List<Node> PriorityQueue = new List<Node>();
-
+        
         public UCS()
         {
             graph.addPathCost();
             graphList = graph.getGraph();
             PriorityQueue.Add(graphList.First());
+            
             doUCS();
             
         }
         public void doUCS()
         {
-            Node n = getPriorityNode();
-            
-
-
+            getPriorityNode();
+            if (PriorityQueue.Count != 0)
+            {
+                doUCS();
+            }
+            else
+            {
+                showPath();
+            }
 
             
         }
+
+        private void showPath()
+        {
+            foreach (var node in exploredList)
+            {
+                Console.WriteLine(node.Name+" cost is :"+node.TotalCost);
+            }
+        }
         private Node getPriorityNode()
         {
-            Node Temp = new Node();
+            Node Temp = PriorityQueue[0];
             for (int i = 0; i < PriorityQueue.Count; i++)
             {
-                if(PriorityQueue[i].TotalCost<=Temp.TotalCost)
+                if(PriorityQueue[i].TotalCost<Temp.TotalCost)
                 {
                     Temp= PriorityQueue[i];
                 }
            
             }
-            exploredList.Add(Temp);
+            
+       
            
             foreach (var item in Temp.Adjacent)
             {
@@ -52,16 +67,27 @@ namespace Algorithm
                     if(item==PriorityQueue[i])
                     {
                         isInList = true;
+                        foreach (var neighbour in Temp.NeighbourPath)
+                        {
+                            if (neighbour.neighbour == item)
+                            {
+                                if (item.TotalCost >= Temp.TotalCost + neighbour.cost)
+                                {
+                                    item.TotalCost = Temp.TotalCost + neighbour.cost;
+                                }
+                            }
+                        }
                     }
+                   
 
                 }
-                //for (int i = 0; i < exploredList.Count; i++)
-                //{
-                //    if (item == exploredList[i])
-                //    {
-                //        isInList = true;
-                //    }
-                //}
+                for (int i = 0; i < exploredList.Count; i++)
+               {
+                   if (item == exploredList[i])
+                    {
+                       isInList = true;
+                    }
+                }
                 if (!isInList)
                 {
                     PriorityQueue.Add(item);
@@ -73,9 +99,11 @@ namespace Algorithm
                         }
                     }
                 }
-                PriorityQueue.Remove(Temp);
+               
+              
             }
-           
+            PriorityQueue.Remove(Temp);
+            exploredList.Add(Temp);
             return Temp;
            
         }
