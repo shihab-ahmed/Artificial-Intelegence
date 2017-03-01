@@ -14,5 +14,6 @@ namespace Lab4AI
         public bool isVisited { get; set; }
         public int TotalCost { get; set; }
         public List<Neighbour> NeighbourPath{get;set;}
+        public int hurestic { get; set; }
     }
 }

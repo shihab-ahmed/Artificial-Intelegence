@@ -12,7 +12,8 @@ namespace Algorithm
         static void Main(string[] args)
         {
             // DFS dfs = new DFS();
-            UCS ucs = new UCS();
+            //UCS ucs = new UCS();
+            Astar astar = new Astar();
         }
     }
 }

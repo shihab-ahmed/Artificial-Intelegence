@@ -42,6 +42,13 @@ namespace Lab4AI
             n4.Adjacent = new List<Node> {n5 };
             n5.Adjacent = new List<Node> {  };
 
+            n.hurestic = 4;
+            n1.hurestic = 3;
+            n2.hurestic = 4;
+            n3.hurestic = 2;
+            n4.hurestic = 1;
+            n5.hurestic = 0;
+
             GraphMap.Add(n);
             GraphMap.Add(n1);
             GraphMap.Add(n2);
