@@ -1,4 +1,4 @@
-﻿using Algorithm;
+using Algorithm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +17,12 @@ namespace Lab4AI
         Node n3 = new Node();
         Node n4 = new Node();
         Node n5 = new Node();
+        Node n6 = new Node();
+        Node n7 = new Node();
+        Node n8 = new Node();
+        Node n9 = new Node();
+       
+        
 
         public Graph()
         {
@@ -28,19 +34,39 @@ namespace Lab4AI
           
 
 
-            n.Name = "S";       
-            n1.Name = "A";
-            n2.Name = "B";
-            n3.Name = "C";
-            n4.Name = "D";
-            n5.Name = "G";
+            n.Name =  "A";       
+            n1.Name = "B";
+            n2.Name = "C";
+            n3.Name = "D";
+            n4.Name = "E";
+            n5.Name = "F";
+            n6.Name = "G";
+            n7.Name = "H";
+            n8.Name = "I";
+            n9.Name = "J";
 
-            n.Adjacent = new List<Node> { n1,n5 };
-            n1.Adjacent = new List<Node> {n2,n3};    
-            n2.Adjacent = new List<Node> {n4};           
-            n3.Adjacent = new List<Node> { n4,n5 };          
-            n4.Adjacent = new List<Node> {n5 };
-            n5.Adjacent = new List<Node> {  };
+            n.color = 0;
+            n1.color = 0;
+            n2.color = 0;
+            n3.color = 0;
+            n4.color = 0;
+            n5.color = 0;
+            n6.color = 0;
+            n7.color = 0;
+            n8.color = 0;
+            n9.color = 0;
+            
+
+            n.Adjacent = new List<Node> { n1,n2,n3 };
+            n1.Adjacent = new List<Node> {n,n4,n8};    
+            n2.Adjacent = new List<Node> {n,n6,n7};           
+            n3.Adjacent = new List<Node> { n,n5,n9 };          
+            n4.Adjacent = new List<Node> {n1,n5,n7 };
+            n5.Adjacent = new List<Node> {n3,n4,n6  };
+            n6.Adjacent = new List<Node> {n8,n2,n5 };
+            n7.Adjacent = new List<Node> {n9,n2,n4 };
+            n8.Adjacent = new List<Node> {n1,n6,n9 };
+            n9.Adjacent = new List<Node> {n8,n7,n3 };
 
             n.hurestic = 4;
             n1.hurestic = 3;
@@ -55,6 +81,10 @@ namespace Lab4AI
             GraphMap.Add(n3);
             GraphMap.Add(n4);
             GraphMap.Add(n5);
+            GraphMap.Add(n6);
+            GraphMap.Add(n7);
+            GraphMap.Add(n8);
+            GraphMap.Add(n9);
 
 
         }
